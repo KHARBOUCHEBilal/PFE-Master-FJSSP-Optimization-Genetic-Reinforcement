@@ -1,6 +1,7 @@
 
 # KHARBOUCHE BILAL MIAAD bilal.kharbouche99@gmail.com
 
+i use the data.txt 
 # Python implementation of a genetic algorithm for FJSP.
 
 Based on a paper written by Xinyu Li and Liang Gao [1].
@@ -26,9 +27,11 @@ The code has been designed to be read along the section 4 of this paper.
 To run the algorithm on the Mk02 problem from the Brandimarte data:
 
 ```
-$ python3 main.py test_data/Brandimarte_Data/Text/Mk02.fjs 
+$ python3 main.py data.txt 
 ```
+Test data from this article [this site](https://www.researchgate.net/publication/369016034_A_Bi-Level_Genetic_Algorithm_to_Solve_the_Dynamic_Flexible_Job_Shop_Scheduling_Problem?enrichId=rgreq-405d8f6fb6cba496c67d9ceea01d93aa-XXX&enrichSource=Y292ZXJQYWdlOzM2OTAxNjAzNDtBUzoxMTQzMTI4MTEyNTE0NjY2NUAxNjc4MjE0OTY3MzM2&el=1_x_3&_esc=publicationCoverPdf).
 
+![alt text](data.png)
 Test data can be found on [this site](http://people.idsia.ch/~monaldo/fjsp.html).
 
 ## References 
