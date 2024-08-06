@@ -32,6 +32,8 @@ $ python3 main.py data.txt
 Test data from this article [this site](https://www.researchgate.net/publication/369016034_A_Bi-Level_Genetic_Algorithm_to_Solve_the_Dynamic_Flexible_Job_Shop_Scheduling_Problem?enrichId=rgreq-405d8f6fb6cba496c67d9ceea01d93aa-XXX&enrichSource=Y292ZXJQYWdlOzM2OTAxNjAzNDtBUzoxMTQzMTI4MTEyNTE0NjY2NUAxNjc4MjE0OTY3MzM2&el=1_x_3&_esc=publicationCoverPdf).
 
 ![alt text](data.png)
+
+
 Test data can be found on [this site](http://people.idsia.ch/~monaldo/fjsp.html).
 
 ## References 
