@@ -15,29 +15,27 @@ def parse(path):
     firstLineValues = list(map(int, firstLine.split()[0:2]))  # Extrait les deux premiers entiers de la première ligne
 
     jobsNb = firstLineValues[0]  # Nombre de travaux
-    
     machinesNb = firstLineValues[1]  # Nombre de machines
-    
+
     jobs = []  # Liste pour stocker les travaux
 
     for i in range(jobsNb):
         currentLine = file.readline()  # Lit la ligne actuelle
-        
         currentLineValues = list(map(int, currentLine.split()))  # Convertit les valeurs de la ligne en entiers
-    
-        operations = []  # Liste pour stocker les opérations du travail actuel
-
+        operations = []  # Liste pour stocker les opérations du travail (job) actuel
         j = 1
         while j < len(currentLineValues):
             k = currentLineValues[j]  # Nombre d'opérations pour la machine actuelle
             j = j + 1
-
             operation = []  # Liste pour stocker les détails de chaque opération
-
             for ik in range(k):
+                # print("ik ", ik)
+                # print(" j ", j)
                 machine = currentLineValues[j]  # Numéro de la machine
+                # print("machine ", machine)
                 j = j + 1
                 processingTime = currentLineValues[j]  # Temps de traitement
+                # print("processing Time ", processingTime)
                 j = j + 1
 
                 operation.append({'machine': machine, 'processingTime': processingTime})  # Ajoute l'opération à la liste
@@ -49,3 +47,7 @@ def parse(path):
     file.close()  # Ferme le fichier
 
     return {'machinesNb': machinesNb, 'jobs': jobs}  # Retourne un dictionnaire contenant le nombre de machines et les travaux
+
+# Test du parser
+data = parse('./test_data/Brandimarte_Data/Text/Mk01.fjs')
+print("Données parsées:", data)

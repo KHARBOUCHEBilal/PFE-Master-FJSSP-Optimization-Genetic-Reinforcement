@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-# This script contains a high-level overview of the proposed hybrid algorithm
-# and displays the Gantt charts before and after applying the genetic algorithm.
+# Ce script contient une vue d'ensemble de l'algorithme hybride proposé
+# et affiche les diagrammes de Gantt avant et après l'application de l'algorithme génétique.
 
 import sys
 import time
@@ -10,34 +10,32 @@ from src.utils import parser, gantt
 from src.genetic import encoding, decoding, genetic, termination
 from src import config
 
-# Beginning
+# Début du script
 if len(sys.argv) != 2:
     print("Usage: " + sys.argv[0] + " filename")
 else:
-    # Parameters Setting
+    # Paramètres contient la data 
     parameters = parser.parse(sys.argv[1])
-
-    # Initialize the Population
+    # Initialiser la population
     population = encoding.initializePopulation(parameters)
-    
-    # Draw and save initial Gantt chart
+    # Dessiner et sauvegarder le diagramme de Gantt initial
     initial_best_individual = min(population, key=lambda cpl: genetic.timeTaken(cpl, parameters))
+    print("initial best individual ", initial_best_individual)
+    print("population ", population)
     initial_gantt_data = decoding.translate_decoded_to_gantt(decoding.decode(parameters, initial_best_individual[0], initial_best_individual[1]))
-    gantt.draw_chart(initial_gantt_data, 'initial_gantt.svg')
-    print("Initial Gantt chart saved as 'initial_gantt.svg'.")
-    
-    t0 = time.time()
+    gantt.draw_chart(initial_gantt_data, 'initial_gantt_i.svg')
+    print("Diagramme de Gantt initial sauvegardé sous 'initial_gantt.svg'.")
+    t0 = time.time()  # Temps de début
 
-    gen = 1
-
-    # Evaluate the population
+    gen = 1  # Initialisation de la génération
+    # Évaluer la population
     while not termination.shouldTerminate(population, gen):
-        print(f"Generation {gen}")
+        print(f"Génération {gen}")
         best_individual = min(population, key=lambda cpl: genetic.timeTaken(cpl, parameters))
         best_time = genetic.timeTaken(best_individual, parameters)
-        print(f"Best time in generation {gen}: {best_time}")
+        print(f"Meilleur temps dans la génération {gen}: {best_time}")
 
-        # Genetic Operators
+        # Opérateurs génétiques
         population = genetic.selection(population, parameters)
         population = genetic.crossover(population, parameters)
         population = genetic.mutation(population, parameters)
@@ -46,11 +44,11 @@ else:
 
     sortedPop = sorted(population, key=lambda cpl: genetic.timeTaken(cpl, parameters))
 
-    t1 = time.time()
-    total_time = t1 - t0
-    print("Finished in {0:.2f}s".format(total_time))
+    t1 = time.time()  # Temps de fin
+    total_time = t1 - t0  # Temps total
+    print("Terminé en {0:.2f}s".format(total_time))
 
-    # Draw and save final Gantt chart
+    # Dessiner et sauvegarder le diagramme de Gantt final
     final_gantt_data = decoding.translate_decoded_to_gantt(decoding.decode(parameters, sortedPop[0][0], sortedPop[0][1]))
-    gantt.draw_chart(final_gantt_data, 'final_gantt.svg')
-    print("Final Gantt chart saved as 'final_gantt.svg'.")
+    gantt.draw_chart(final_gantt_data, 'final_gantt_i.svg')
+    print("Diagramme de Gantt final sauvegardé sous 'final_gantt.svg'.")
