@@ -152,18 +152,15 @@ def translate_decoded_to_gantt(machine_operations):
     :return: Dictionnaire formaté pour un diagramme de Gantt.
     """
     data = {}
-    print("____ translate decode to gantt ____")
-    print("machine operations : ", machine_operations)
+
     for idx, machine in enumerate(machine_operations):
-        print("idx ", idx, "machine ", machine)
+
         machine_name = "Machine-{}".format(idx + 1)
-        print("machine name ", machine_name)
+
         operations = []
         for operation in machine:
-            print("operation in machine ", operation)
             operations.append([operation[3], operation[3] + operation[1], operation[0]])
         operations
         data[machine_name] = operations
-        print("data[machine name] : ", data[machine_name])
 
     return data

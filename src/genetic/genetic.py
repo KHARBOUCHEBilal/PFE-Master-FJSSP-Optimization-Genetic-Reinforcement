@@ -21,10 +21,8 @@ def timeTaken(os_ms, pb_instance):
     :return: Le temps maximal requis par n'importe quelle machine.
     """
     (os, ms) = os_ms
-    print(" ____ ___ ______ ___________ ________ ____ _____")
-    print("os : ", os, " ms : ", ms)
     decoded = decoding.decode(pb_instance, os, ms)
-    print("decode :", decoded)
+
     # Obtenir le maximum pour chaque machine
     max_per_machine = []
     for machine in decoded:
@@ -222,7 +220,7 @@ def crossoverMS(p1, p2):
     """
     return twoPointCrossover(p1, p2)
 
-def crossover(population, parameters):
+def crossover(population, parameters, pc):
     """
     Applique le croisement sur la population entière.
     :param population: Liste des individus de la population.
@@ -235,7 +233,7 @@ def crossover(population, parameters):
         (OS1, MS1) = population[i]
         (OS2, MS2) = population[i+1]
 
-        if random.random() < config.pc:
+        if random.random() < pc:
             (oOS1, oOS2) = crossoverOS(OS1, OS2, parameters)
             (oMS1, oMS2) = crossoverMS(MS1, MS2)
             newPop.append((oOS1, oMS1))
@@ -350,7 +348,7 @@ def mutationMS(p, parameters):
     """
     return halfMutation(p, parameters)
 
-def mutation(population, parameters):
+def mutation(population, parameters, pm):
     """
     Applique la mutation sur la population entière.
     :param population: Liste des individus de la population.
@@ -360,7 +358,7 @@ def mutation(population, parameters):
     newPop = []
 
     for (OS, MS) in population:
-        if random.random() < config.pm:
+        if random.random() < pm:
             oOS = mutationOS(OS)
             oMS = mutationMS(MS, parameters)
             newPop.append((oOS, oMS))

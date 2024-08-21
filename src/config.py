@@ -1,13 +1,13 @@
-# Configuration de l'algorithme génétique
+# config.py
 
 # Taille de la population
-popSize = 2 #300
+popSize = 300
 
 # Nombre maximum de générations
-maxGen = 100
+maxGen = 200
 
 # Taux de sélection (proportion de la population à conserver)
-pr = 0.005
+pr = 0.2
 
 # Taux de croisement (probabilité de croisement)
 pc = 0.8
