@@ -1,41 +1,44 @@
+# KHARBOUCHE BILAL MIAAD
+bilal.kharbouche99@gmail.com
 
-# KHARBOUCHE BILAL MIAAD bilal.kharbouche99@gmail.com
+## Flexible Job Shop Scheduling Problem (FJSSP) Optimization
 
-i use the data.txt 
-# Python implementation of a genetic algorithm for FJSP.
+### Description
+This project focuses on solving the **Flexible Job Shop Scheduling Problem (FJSSP)** using a combination of **Genetic Algorithms** and **Reinforcement Learning** techniques such as **SARSA**, **Q-learning**, and **Double Q-learning**. It is developed as part of my Master's thesis in Artificial Intelligence and Data Science.
 
-Based on a paper written by Xinyu Li and Liang Gao [1].
+The FJSSP is an NP-hard problem where jobs need to be scheduled on machines with flexibility in job routing. The goal is to optimize the allocation and sequencing of jobs to minimize makespan (total time) or other performance metrics.
 
+### Technologies Used
+- **Python** for the implementation of algorithms.
+- **Genetic Algorithms (GA)** for generating near-optimal schedules.
+- **Reinforcement Learning** techniques such as **SARSA**, **Q-learning**, and **Double Q-learning** to enhance the scheduling process dynamically.
+- **Matplotlib** for visualizing results (Gantt charts, convergence plots, etc.).
 
-## Code structure
+### Features
+- **Flexible job and machine assignment:** Jobs can be processed on different machines, and the algorithm selects the best machine dynamically.
+- **Optimization:** Combines the exploration-exploitation strategies of reinforcement learning with the genetic algorithm's ability to search the solution space.
+- **Comparison of Algorithms:** Allows comparing the performance of SARSA, Q-learning, and Double Q-learning in optimizing FJSSP.
+- **Visualizations:** Displays Gantt charts and convergence graphs of the optimization process.
 
-The code has been designed to be read along the section 4 of this paper.
+### Setup and Installation
 
-- Workflow of the proposed HA (4.1)
-    - main.py
-- Encoding and decoding (4.2)
-    - encoding.py, decoding.py
-- Genetic operators (4.3)
-    - genetic.py
-- Local search by tabu search (4.4)
-    - This section has been ignored
-- Terminate criteria (4.5)
-    - termination.py
+#### Prerequisites
+- **Python 3.9** or later
+- **Numpy**, **Matplotlib**, and other required libraries (see `requirements.txt`)
 
-## Usage
+#### Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/username/FJSSP-Optimization-Genetic-Reinforcement.git
+    cd FJSSP-Optimization-Genetic-Reinforcement
+    ```
 
-To run the algorithm on the Mk02 problem from the Brandimarte data:
+2. Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-```
-$ python3 main.py data.txt 
-```
-Test data from this article [this site](https://www.researchgate.net/publication/369016034_A_Bi-Level_Genetic_Algorithm_to_Solve_the_Dynamic_Flexible_Job_Shop_Scheduling_Problem?enrichId=rgreq-405d8f6fb6cba496c67d9ceea01d93aa-XXX&enrichSource=Y292ZXJQYWdlOzM2OTAxNjAzNDtBUzoxMTQzMTI4MTEyNTE0NjY2NUAxNjc4MjE0OTY3MzM2&el=1_x_3&_esc=publicationCoverPdf).
-
-![alt text](data.png)
-
-
-Test data can be found on [this site](http://people.idsia.ch/~monaldo/fjsp.html).
-
-## References 
-
-[1] Xinyu Li and Liang Gao. An effective hybrid genetic algorithm and tabu searchfor  flexible  job  shop  scheduling  problem.International  Journal  of  ProductionEconomics, 174 :93 – 110, 2016
+### Running the Project
+To run the optimization, use the following command:
+```bash
+python main.py data.txt
